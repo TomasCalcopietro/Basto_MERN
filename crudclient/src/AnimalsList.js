@@ -25,8 +25,8 @@ const AnimalsList = () => {
   }, [])
 
 
-  // Funcion para borrar Animal
-  function borraranimal(idanimal) {
+  // Function to delete Animal
+  function deleteanimal(idanimal) {
     axios.post('/api/animal/deleteanimals', {idanimal: idanimal}).then(res => {
       Swal.fire('Felicidades', 'Animal eliminado con éxito')
       setTimeout(()=>{
@@ -67,7 +67,7 @@ const AnimalsList = () => {
                   <td>{animal.tipoDispositivo}</td>
                   <td>{animal.numeroDispositivo}</td>
                   <td><Link to={`/editar-animal/${animal.idanimal}`} className='btn btn-success mt-2'>Editar</Link></td>
-                  <td><button className='btn btn-danger mt-2' onClick={() => {borraranimal(animal.idanimal)}}>Eliminar</button></td>
+                  <td><button className='btn btn-danger mt-2' onClick={() => {deleteanimal(animal.idanimal)}}>Eliminar</button></td>
                 </tr>
               ))}
             </tbody>
